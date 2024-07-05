@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Container from "@/components/global/Container";
 import { Provider } from "@radix-ui/react-toast";
+import { ClerkProvider } from '@clerk/nextjs'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,13 +19,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <Provider>
-          <Navbar />
-          <Container className="py-20">{children}</Container>
-        </Provider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body className={inter.className}>
+          <Provider>
+            <Navbar />
+            <Container className="py-20">{children}</Container>
+          </Provider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
