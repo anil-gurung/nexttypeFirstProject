@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Container from "@/components/global/Container";
-import { Provider } from "@radix-ui/react-toast";
+import { Toaster } from "@/components/ui/toaster";
 import { ClerkProvider } from '@clerk/nextjs'
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,10 +22,10 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body className={inter.className}>
-          <Provider>
-            <Navbar />
-            <Container className="py-20">{children}</Container>
-          </Provider>
+
+          <Navbar />
+          <Container className="py-20">{children}</Container>
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>
