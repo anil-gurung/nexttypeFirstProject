@@ -50,11 +50,11 @@ async function ItemsPage() {
                                 <TableCell>{formatCurrency(price)}</TableCell>
                                 <TableCell className='flex items-center gap-x-2'>
                                     <Link href={`/admin/products/${productId}/edit`}>
-                                        <IconButton actionType='edit'></IconButton>
+                                        <IconButton actionType='edit' />
                                     </Link>
                                     <DeleteProduct productId={productId} />
                                 </TableCell>
-                                <TableCell className='flex items-center gap-x-2'></TableCell>
+
                             </TableRow>
                         );
                     })}
